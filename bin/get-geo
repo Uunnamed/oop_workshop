@@ -9,11 +9,8 @@ if (file_exists($autoloadPath1)) {
 } else {
     require_once $autoloadPath2;
 }
+$options = getopt('',['ip:']);
+$ip = array_key_exists('ip', $options) ? $options['ip'] : '';
+$ipInfo = new Php\Package\IPInfo($ip);
 
-echo 'what is your name?: ';
-$name = trim(fgets(STDIN));
-
-$user = new Php\Package\User($name);
-
-var_dump($user);
-
+print_r($ipInfo->getCity());

@@ -1,6 +1,6 @@
 {
   "name": "uunnamed/oop-workshop",
-  "bin": ["bin/php-package"],
+  "bin": ["bin/get-geo"],
   "type": "library",
   "authors": [
     {
