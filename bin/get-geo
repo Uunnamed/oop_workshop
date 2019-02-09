@@ -11,6 +11,10 @@ if (file_exists($autoloadPath1)) {
 }
 $options = getopt('',['ip:']);
 $ip = array_key_exists('ip', $options) ? $options['ip'] : '';
-$ipInfo = Php\Package\IPInfoGetter::getIpInfo($ip);
-
-echo $ipInfo;
+try {
+  $geoIp = new \Php\Package\GeoIp();
+  $ipInfo = $geoIp->getDataForIp($ip);
+  echo $ipInfo->getCity();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}

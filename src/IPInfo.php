@@ -9,7 +9,7 @@ class IPInfo
     //...etc
     public function __construct($ipData)
     {
-        $this->ip = $ipData->ip;
+        $this->ip = $ipData->query;
         $this->city = $ipData->city;
     }
 
