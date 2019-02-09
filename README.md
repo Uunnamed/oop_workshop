@@ -1,6 +1,6 @@
-Get GEO by IP
+##Get GEO by IP
 
-Usage
+###Usage
 
 `make install`
 

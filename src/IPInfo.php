@@ -4,35 +4,28 @@ namespace Php\Package;
 
 class IPInfo
 {
-    const URL = 'http://ip-api.com/json/';
-
     private $ip;
-    private $data;
-
-    public function __construct(string $ip)
+    private $city;
+    //...etc
+    public function __construct($ipData)
     {
-        $this->ip = $ip;
-        $this->data = $this->setData($ip);
-    }
-
-    public function setData(string $ip)
-    {
-        return json_decode(file_get_contents(self::URL . $ip));
+        $this->ip = $ipData->ip;
+        $this->city = $ipData->city;
     }
 
     public function getIp()
     {
         return $this->ip;
     }
-    public function getData() :\stdClass
+
+    public function getCity()
     {
-        return $this->data;
+        return $this->city;
     }
 
-    public function getCity() :string
+    public function __toString()
     {
-        return $this->data->city;
+        return "{$this->ip}: {$this->city}";
     }
 }
-
 
